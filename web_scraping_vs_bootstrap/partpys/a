@@ -1,0 +1,40 @@
+    def dcwd(self):
+        self.lk_data_c_dt_p = []
+        for i in self.data_c_dt_p:
+            self.lk_data_c_dt_p.append(i.get("link"))
+        return self.lk_data_c_dt_p
+    def dcdwds (self):
+        self.lk_data_c_dt_p_sec = []
+        for i in self.data_c_dt_p_sec:
+            self.lk_data_c_dt_p_sec.append(i.get("link"))
+        return self.lk_data_c_dt_p_sec
+    def prs (self):
+        self.lk_data_pol_row_section = []
+        for i in self.data_pol_row_section:
+            self.lk_data_pol_row_section.append(i.get("link"))
+        return self.lk_data_pol_row_section
+    def mrs(self):
+        self.lk_data_mnd_row_section = []
+        for i in self.data_mnd_row_section:
+            self.lk_data_mnd_row_section.append(i.get("link"))
+        return self.lk_data_mnd_row_section
+    def ers(self):
+        self.lk_data_eco_row_section = []
+        for i in self.data_eco_row_section:
+            self.lk_data_eco_row_section.append(i.get("link"))
+        return self.lk_data_eco_row_section
+    def drs(self):
+        self.lk_data_depor_row_section = []
+        for i in self.data_depor_row_section:
+            self.lk_data_depor_row_section.append(i.get("link"))
+        return self.lk_data_depor_row_section
+    def crs(self):
+        self.lk_data_cult_row_section = []
+        for i in self.data_cult_row_section:
+            self.lk_data_cult_row_section.append(i.get("link"))
+        return self.lk_data_cult_row_section
+    def trs(self):
+        self.lk_data_tech_row_section = []
+        for i in self.data_tech_row_section:
+            self.lk_data_tech_row_section.append(i.get("link"))
+        return self.lk_data_tech_row_section

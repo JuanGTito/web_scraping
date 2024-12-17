@@ -1,0 +1,224 @@
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="static/styles.css">
+        <!-- Enlace a Bootstrap 5 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <title>TechMundo</title>
+    </head>
+    <body>
+        <!-- Encabezado -->
+        <header class="text-white py-0 encabezado">
+            <div class="container text-center ">
+                <div class=" container d-flex align-items-center">
+                    <img class="img" src="../static/logo.png" alt="Logo">
+                    <h1>TechMundo</h1>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-black" href="/">Noticias</a></li>
+                    <li class="nav-item"><a class="nav-link text-black" href="/sec_pol_rows">Política</a></li>
+                    <li class="nav-item"><a class="nav-link text-black" href="/sec_eco_rows">Economia</a></li>
+                    <li class="nav-item"><a class="nav-link text-black" href="/sec_depor_rows">Deportes</a></li>
+                    <li class="nav-item"><a class="nav-link text-black" href="/sec_cult_rows">Cultura</a></li>
+                    <li class="nav-item"><a class="nav-link text-black" href="/sec_tech_rows">Tecnología</a></li>
+                    <li class="nav-item"><a class="nav-link text-black" href="/sec_mnd_rows">Internacional</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="container my-4">
+                <!-- Primera fila -->
+                <div class="row g-3">
+                    <!-- Columna 1 -->
+                    <div class="col-12 col-md-6">
+                        <div class="h-100">
+                            {% for i in dest_column_ws_data_index %}
+                            <a href="/news_detail?url={{ i.link_prin }}">
+                                <img src="{{ i.imagen_prin }}" alt="{{ i.titulo_prin }}" class="img-fluid" loading="lazy">
+                            </a>
+                            <div class="card-body">
+                                <h4 class="card-title mb-2">
+                                    <a href="/news_detail?url={{ i.link_prin }}" class="text-decoration-none text-dark">
+                                        {{ i.titulo_prin }}
+                                    </a>
+                                </h4>
+                                <p class="card-text fs-6">{{ i.descripcion_prin }}</p>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+            
+                    <!-- Columna 2 -->
+                    <div class="col-12 col-md-6">
+                        <!-- Segunda fila dentro de la segunda columna -->
+                        <div class="row g-3">
+                            {% for i in dest_column_ws_data_sec_index %}
+                            <div class="col-12 col-md-6">
+                                <div class="h-100 p-1">
+                                    <a href="/news_detail_sec?url={{ i.link_sec }}">
+                                        <img src="{{ i.imagen_sec }}" alt="{{ i.titulo_sec }}" class="img-fluid w-100 d-block mx-auto" loading="lazy">
+                                    </a>
+                                    <div class="card-body">
+                                        <h6 class=" text-center card-title mb-2">
+                                            <a href="/news_detail_sec?url={{ i.link_sec }}" class="text-decoration-none text-dark">
+                                                {{ i.titulo_sec }}
+                                            </a>
+                                        </h6>
+                                        <p class="card-text mb-0">{{ i.descripcion_sec }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>                      
+            
+            <div class="container my-4">
+                <h2>Política</h2>
+                <hr class="custom-border">
+            
+                <div class="row d-flex flex-nowrap overflow-hidden" id="rowPolítica">
+                    {% for i in row_pol_section_index %}
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="text-center p-3 ampliacion">
+                            <a href="/news_detail_prs?url={{ i.link_pol }}">
+                                <img src="{{ i.imagen_pol }}" alt="{{ i.titulo_pol }}" class="img-fluid mb-2 category-img" loading="lazy">
+                            </a>
+                            <h6>
+                                <a href="/news_detail_prs?url={{ i.link_pol }}" class="text-black text-decoration-none">
+                                    {{ i.titulo_pol }}
+                                </a>
+                            </h6>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>            
+            
+            <div class="container my-4">
+                <h2>Mundo</h2>
+                <hr class="custom-border">
+
+                <div class="row d-flex flex-nowrap overflow-hidden" id="rowMundo">
+                    {% for i in row_mnd_section_index %}
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="ampliacion text-center p-3">
+                            <a href="/news_detail_mnd?url={{ i.link_mnd }}" >
+                                <img src="{{ i.imagen_mnd }}" alt="{{ i.titulo_mnd }}" class="category-img mb-2" loading="lazy">
+                            </a>
+                        <h6>
+                            <a href="/news_detail_mnd?url={{ i.link_mnd }}" class="text-black text-decoration-none">
+                                {{ i.titulo_mnd }}
+                            </a>
+                        </h6>
+                        </div>
+                        <!-- <a href="{{ i.link_mnd }}">Link</a> -->
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="container my-4">
+                <h2>Economía</h2>
+                <hr class="custom-border">
+
+                <div class="row d-flex flex-nowrap overflow-hidden" id="rowEconomia">
+                    {% for i in row_eco_section_index %}
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="ampliacion text-center p-3">
+                            <a href="/news_detail_eco?url={{ i.link_eco }}">
+                                <img src="{{ i.imagen_eco }}" alt="{{ i.titulo_eco }}" class="category-img mb-2" loading="lazy">
+                            </a>
+                            <h6>
+                                <a href="/news_detail_eco?url={{ i.link_eco }}" class="text-black text-decoration-none">
+                                    {{ i.titulo_eco }}
+                                </a>
+                            </h6>
+                        </div>
+                        <!-- <a href="{{ i.link_eco }}">Link</a> -->
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="container my-4">
+                <h2>Cultural</h2>
+                <hr class="custom-border">
+
+                <div class="row d-flex flex-nowrap overflow-hidden" id="rowCultural">
+                    {% for i in row_cult_section_index %}
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="ampliacion text-center p-3">
+                            <a href="/news_detail_crs?url={{ i.link_cult }}">
+                                <img src="{{ i.imagen_cult }}" alt="{{ i.titulo_cult }}" class="category-img mb-2" loading="lazy">
+                            </a>
+                            <h6>
+                                <a href="/news_detail_crs?url={{ i.link_cult }}" class="text-black text-decoration-none">
+                                    {{ i.titulo_cult }}
+                                </a>
+                            </h6>
+                        </div>
+                       <!-- <a href="{{ i.link_cult }}">Link</a> -->
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="container my-4">
+                <h2>Tecnología</h2>
+                <hr class="custom-border">
+
+                <div class="row d-flex flex-nowrap overflow-hidden" id="rowTecnologia">
+                    {% for i in row_tech_section_index %}
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="ampliacion text-center p-3">
+                            <a href="/news_detail_trs?url={{ i.link_tech }}">
+                                <img src="{{ i.imagen_tech }}" alt="{{ i.titulo_tech }}" class="category-img mb-2" loading="lazy">
+                            </a>
+                            <h6>
+                                <a href="/news_detail_trs?url={{ i.link_tech }}" class="text-black text-decoration-none">
+                                    {{ i.titulo_tech }}
+                                </a>
+                            </h6>
+                        </div>
+                        <!-- <a href="{{ i.link_tech }}">Link</a> -->
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </main>
+        <!-- Pie de página -->
+        <footer class="text-white text-center py-0 pie">
+            <div class="container">
+                <div class=" container d-flex align-items-center">
+                <img class="img" src="../static/logo.png" alt="logo">
+                <h1>TechMundo</h1>
+                </div>
+                <p class="mb-0 fs-8">&copy; 2024 Noticias del Día. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+        <script>
+            function moveRow(rowId) {
+                const row = document.getElementById(rowId);
+                const firstColumn = row.firstElementChild;
+                row.appendChild(firstColumn);
+            }
+
+            setInterval(() => {
+                moveRow("rowPolítica");
+                moveRow("rowMundo");
+                moveRow("rowEconomia");
+                moveRow("rowDeportes");
+                moveRow("rowCultural");
+                moveRow("rowTecnologia");
+            }, 10000);
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+    </html>

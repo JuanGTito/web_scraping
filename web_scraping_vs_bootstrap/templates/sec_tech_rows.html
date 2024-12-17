@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnología</title>
+    <!-- Enlace a Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/styles_section.css">
+    <link rel="icon" href="static/logo.png" type="image/png">
+</head>
+<body>
+    <header class="text-white py-0 encabezado">
+        <div class="container text-center ">
+            <div class=" container d-flex align-items-center">
+                <img class="img" src="../static/logo.png" alt="Logo">
+                <h1>TechMundo</h1>
+            </div>
+        </div>
+        <nav class="nav">
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link text-black" href="/">Noticias</a></li>
+                <li class="nav-item"><a class="nav-link text-black" href="/sec_pol_rows">Política</a></li>                    
+                <li class="nav-item"><a class="nav-link text-black" href="/sec_mnd_rows">Internacional</a></li>
+                <li class="nav-item"><a class="nav-link text-black" href="/sec_eco_rows">Economia</a></li>
+                <li class="nav-item"><a class="nav-link text-black" href="/sec_depor_rows">Deportes</a></li>
+                <li class="nav-item"><a class="nav-link text-black" href="/sec_cult_rows">Cultura</a></li>
+                <li class="nav-item"><a class="nav-link text-black" href="/sec_tech_rows">Tecnología</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container my-4">
+            <div class="row g-3" id="rowtechítica">
+                {% for i in sec_tech_rows_index %}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card shadow-sm border-0 h-100">
+                        <a href="/news_detail_trs?url={{ i.link_tech }}">
+                            <img src="{{ i.imagen_tech }}" alt="{{ i.titulo_tech }}" class="card-img-top img-fluid mb-2" loading="lazy">
+                        </a>
+                        <div class="card-body text-center">
+                            <h6 class="card-title">
+                                <a href="/news_detail_trs?url={{ i.link_tech }}" class="text-dark text-decoration-none">{{ i.titulo_tech }}</a>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>        
+    </main>
+    <footer class="text-white text-center py-0 pie">
+        <div class="container">
+            <div class=" container d-flex align-items-center">
+            <img class="img" src="../static/logo.png" alt="logo">
+            <h1>TechMundo</h1>
+            </div>
+            <p class="mb-0 fs-8">&copy; 2024 Noticias del Día. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
